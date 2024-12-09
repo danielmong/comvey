@@ -40,14 +40,31 @@
             </x-user-ratings>
 
             <div class="mx-auto md:max-w-3xl lg:max-w-5xl">
-                <div class="drop-shadow-2xl mt-8 rounded-2xl h-[700px] bg-white w-full">
-
+                <div class="drop-shadow-2xl mt-8 rounded-2xl h-[700px] bg-white w-full px-4 py-1">
+                    @foreach($codepens as $item)
+                    <x-codepen.codepen-item :item="$item"></x-codepen-item>
+                        @endforeach
                 </div>
             </div>
         </div>
     </x-section.hero>
 
+    <div class="preview-modal hidden w-full h-screen fixed top-0 bg-black/80 transition-all duration-300 py-[5%] z-50">
+
+        <div class="w-[80%] h-full bg-white mx-auto align-middle rounded relative">
+            <div class="absolute right-2 top-2 flex">
+                <x-button-link.primary class=" close">
+                    <i class="fa fa-close"></i>
+                    <span class="text-sm ml-2">Close</span>
+                </x-button-link.primary>
+            </div>
+            <iframe class="w-full h-full" id="preview"></iframe>
+        </div>
+    </div>
+
     <x-section.columns class="max-w-none md:max-w-6xl pt-4" id="features">
 
     </x-section.columns>
+
+    <script src="{{ asset('js/codepen/list.js') }}"></script>
 </x-layouts.app>

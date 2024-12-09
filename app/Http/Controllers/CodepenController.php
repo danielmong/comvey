@@ -9,6 +9,16 @@ use App\Models\Codepen;
 
 class CodepenController extends Controller
 {
+    public function home()
+    {
+        if (auth()->check()) {
+            return redirect()->route('codepen.list');
+        } else {
+            $codepens = Codepen::inRandomOrder()->take(20)->get();
+            return view('home', compact("codepens"));
+        }
+    }
+
     public function list()
     {
         $codepens = Codepen::paginate(10);

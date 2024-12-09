@@ -24,13 +24,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    if (auth()->check()) {
-        return redirect()->route('codepen.list');
-    } else {
-        return view('home');
-    }
-})->name('home')->middleware('sitemapped');
+Route::get("/", [CodepenController::class, 'home'])->name('home')->middleware('sitemapped');
+
+// Route::get('/', function () {
+//     if (auth()->check()) {
+//         return redirect()->route('codepen.list');
+//     } else {
+//         return view('home');
+//     }
+// })->name('home')->middleware('sitemapped');
 
 Route::get('/dashboard', function (UserDashboardManager $dashboardManager) {
     return redirect($dashboardManager->getUserDashboardUrl(Auth::user()));
