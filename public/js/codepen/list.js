@@ -100,6 +100,7 @@ $(".close").click(function () {
 })
 
 $(".copy").click(function () {
+    id = id || $(this).data("id");
     location.href = `/codepen/edit/${id}`;
 })
 
