@@ -39,7 +39,7 @@ class LoginController extends Controller
 
     public function redirectPath()
     {
-        return Redirect::getIntendedUrl() ?? route('home');
+        return Redirect::getIntendedUrl() ?? route('codepen.list');
     }
 
     public function showLoginForm()
@@ -60,6 +60,7 @@ class LoginController extends Controller
                 'email' => 'Your account has been blocked. Please contact support.',
             ]);
         }
+        return redirect()->route('codepen.list');
     }
 
     protected function validateLogin(Request $request)

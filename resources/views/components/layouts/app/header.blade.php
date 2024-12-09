@@ -28,16 +28,16 @@
                 <span>
                     <i class="fa fa-plus"></i>
                 </span>
-                    {{ __('Create New') }}
+                {{ __('Create New') }}
             </x-link>
             @endif
 
-            @if(request()->is('codepen/create') || request()->is('codepen/edit'))
+            @if(request()->is('codepen/create') || request()->is('codepen/edit') || request()->is('codepen/edit/*'))
             <x-link class="hidden md:block text-primary-50" href="{{route('codepen.list')}}">
                 <span>
                     <i class="fa fa-arrow-left"></i>
                 </span>
-                    {{ __('Go to List') }}
+                {{ __('Go to List') }}
             </x-link>
             @endif
 

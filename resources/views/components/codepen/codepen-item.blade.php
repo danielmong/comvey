@@ -5,7 +5,7 @@
     </div>
     <div class="flex flex-col gap-1 flex-1">
         <h3 class="!text-lg !font-semibold">
-            <a class="text-primary-900 hover:text-primary-500 break-all line-clamp-1" href="">
+            <a class="text-primary-900 hover:text-primary-500 break-all line-clamp-1" href="#">
                 <span class="text-sm">{{ $item->title }}</span>
             </a>
         </h3>

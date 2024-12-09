@@ -21,7 +21,7 @@ class OAuthController extends RegisterController
         }
 
         if (Auth::check()) {
-            return redirect()->route('home');
+            return redirect()->route('codepen.list');
         }
 
         Redirect::setIntendedUrl(url()->previous());
@@ -119,6 +119,6 @@ class OAuthController extends RegisterController
             return redirect()->route('registration.thank-you');
         }
 
-        return redirect()->route('home');
+        return redirect()->route('codepen.list');
     }
 }

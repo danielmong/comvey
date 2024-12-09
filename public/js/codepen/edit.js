@@ -31,6 +31,9 @@ $(".save-btn").click(function () {
     });
     
     let requestUrl = actionType == "save" ? `/codepen/update/${id}` : '/codepen/save';
+
+    console.log(html);
+    
     
     $.ajax({
         url: requestUrl,  // Your endpoint URL

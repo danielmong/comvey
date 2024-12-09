@@ -22,12 +22,12 @@
             </div>
 
             @if($codepen->user_id == auth()->id())
-            <x-button-link.primary class="" id="save-btn" data-type="save">
+            <x-button-link.primary class="save-btn" id="save-btn" data-type="save">
                 <i class="fa fa-save"></i>
                 Save
             </x-button-link.primary>
             @else
-            <x-button-link.primary class="" id="save-btn" data-type="save-as">
+            <x-button-link.primary class="save-btn" id="save-btn" data-type="save-as">
                 <i class="fa fa-save"></i>
                 Save As
             </x-button-link.primary>

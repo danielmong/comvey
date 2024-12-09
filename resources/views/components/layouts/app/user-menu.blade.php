@@ -33,7 +33,7 @@
                                 </div>
                             </x-link>
                         @endif
-                        <x-link href="{{ route('invitations') }}" class="!px-2">
+                        <!-- <x-link href="{{ route('invitations') }}" class="!px-2">
                             <div class="flex flex-row gap-1">
                                 @svg('invitation', 'h-4 text-primary-500 m-1 stroke-primary-500')
                                 <div>
@@ -49,7 +49,7 @@
                                     @endif
                                 </div>
                             </div>
-                        </x-link>
+                        </x-link> -->
                     @endauth
                 </li>
                 <li class="">
