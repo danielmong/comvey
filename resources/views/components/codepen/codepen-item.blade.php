@@ -1,8 +1,4 @@
 <div class="border border-neutral-200 rounded-lg p-4 my-4 flex gap-3 items-center">
-    <div class="flex flex-col justify-center items-center w-16">
-        <div class="rounded-full h-10 w-10 border"></div>
-        <span class="text-sm">{{ $item->user->name }}</span>
-    </div>
     <div class="flex flex-col gap-1 flex-1">
         <h3 class="!text-lg !font-semibold text-left">
             <a class="text-primary-900 hover:text-primary-500 break-all line-clamp-1" href="#">
@@ -12,6 +8,10 @@
         <p class="text-sm py-1 text-neutral-500 line-clamp-2 break-all text-left">
             <span class="text-sm">{{ $item->description }}</span>
         </p>
+        <div class="flex items-center">
+            <!-- <div class="rounded-full h-10 w-10 border"></div> -->
+            <span class="text-xs">by {{ $item->user->name }}</span>
+        </div>
     </div>
     <div>
         <div class="flex gap-2 md:flex-row flex-col">
