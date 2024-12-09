@@ -18,10 +18,10 @@
             <div class="flex flex-wrap gap-4 justify-center flex-col md:flex-row mt-6">
                 <x-effect.glow></x-effect.glow>
 
-                <x-button-link.secondary href="#pricing" class="self-center !py-3" elementType="a">
+                <x-button-link.secondary href="" class="self-center !py-3" elementType="a">
                     {{ __('Start Coding for Free') }}
                 </x-button-link.secondary>
-                <x-button-link.primary-outline href="//demo.saasykit.com" class=" bg-transparent self-center !py-3 text-white border-white" rel=”nofollow”>
+                <x-button-link.primary-outline href="" class=" bg-transparent self-center !py-3 text-white border-white" rel=”nofollow”>
                     {{ __('Explore Public Projects') }}
                 </x-button-link.primary-outline>
 
