@@ -202,10 +202,11 @@ Route::get('/invoice/preview', [
     'preview',
 ])->name('invoice.preview');
 
+Route::get("/codepen/list", [CodepenController::class, 'list'])->name('codepen.list');
+Route::get('/codepen/create', [CodepenController::class, 'create'])->name('codepen.create');
+Route::get('/codepen/edit/{id}', [CodepenController::class, 'edit'])->name('codepen.edit');
+
 Route::middleware('auth')->group(function () {
-    Route::get("/codepen/list", [CodepenController::class, 'list'])->name('codepen.list');
-    Route::get('/codepen/create', [CodepenController::class, 'create'])->name('codepen.create');
-    Route::get('/codepen/edit/{id}', [CodepenController::class, 'edit'])->name('codepen.edit');
     Route::post('/codepen/save', [CodepenController::class, 'save'])->name('codepen.save');
     Route::post('/codepen/update/{id}', [CodepenController::class, 'update'])->name('codepen.update');
     Route::delete('/codepen/{id}', [CodepenController::class, 'delete'])->name('codepen.delete');

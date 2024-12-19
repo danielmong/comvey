@@ -1,75 +1,3 @@
-// // Initialize Ace Editor for HTML, CSS, and JavaScript
-// // HTML Editor
-// const htmlEditor = ace.edit("html-editor");
-// htmlEditor.session.setMode("ace/mode/html");
-
-// // CSS Editor
-// const cssEditor = ace.edit("css-editor");
-// cssEditor.session.setMode("ace/mode/css");
-
-// // JavaScript Editor
-// const jsEditor = ace.edit("js-editor");
-// jsEditor.session.setMode("ace/mode/javascript");
-
-// let result = document.querySelector('#result');
-
-// // Store debounce timer
-// let debounce;
-
-// /**
-//  * Update the iframe
-//  */
-// function updateIframe() {
-
-//     // Create a new iframe to replace the old one (to reset it)
-//     let clone = result.cloneNode();
-//     result.replaceWith(clone);
-//     result = clone;
-
-//     // Clear the iframe's document
-//     const iframeDocument = result.contentWindow.document;
-//     iframeDocument.open();
-//     iframeDocument.close();
-
-//     // Create a container for HTML content
-//     const htmlContent = `
-//     ${htmlEditor.getValue()}
-//     <style>${cssEditor.getValue()}</style>
-//     `;
-
-//     // Write to the iframe's document safely (without the <script> tag here)
-//     iframeDocument.documentElement.innerHTML = htmlContent;
-
-//     // Create the script element to execute JavaScript
-//     const scriptElement = iframeDocument.createElement('script');
-//     scriptElement.type = 'module';
-//     scriptElement.innerHTML = jsEditor.getValue();
-
-//     // Append the script to the iframe document to execute the JS code
-//     iframeDocument.body.appendChild(scriptElement);
-
-// }
-
-// function inputHandler() {
-//     clearTimeout(debounce);
-//     debounce = setTimeout(updateIframe, 500);
-// }
-
-// // Listen for input events
-// htmlEditor.on("change", function (delta) {
-//     inputHandler();
-// });
-
-// cssEditor.on("change", function (delta) {
-//     inputHandler();
-// });
-
-// jsEditor.on("change", function (delta) {
-//     inputHandler();
-// });
-
-// Initialize Ace Editor for HTML, CSS, and JavaScript
-// HTML Editor
 const htmlEditor = ace.edit("html-editor");
 htmlEditor.session.setMode("ace/mode/html");
 
@@ -87,49 +15,49 @@ let result = document.querySelector('#result');
 let debounce;
 
 /**
- * Update the iframe
- */
+  * Update the iframe
+  */
 function updateIframe() {
-    // Create a new iframe to replace the old one (to reset it)
-    let clone = result.cloneNode();
-    result.replaceWith(clone);
-    result = clone;
+        // Create a new iframe to replace the old one (to reset it)
+        let clone = result.cloneNode();
+        result.replaceWith(clone);
+        result = clone;
 
-    // Clear the iframe's document
-    const iframeDocument = result.contentWindow.document;
-    iframeDocument.open();
-    iframeDocument.close();
+        // Clear the iframe's document
+        const iframeDocument = result.contentWindow.document;
+        iframeDocument.open();
+        iframeDocument.close();
 
-    // Extract script tags from HTML content
-    const htmlContent = htmlEditor.getValue();
-    const htmlWithoutScripts = htmlContent.replace(/<script[\s\S]*?>[\s\S]*?<\/script>/gi, '');
-    const scripts = [...htmlContent.matchAll(/<script[\s\S]*?>[\s\S]*?<\/script>/gi)].map(match => match[0]);
+        // Extract script tags from HTML content
+        const htmlContent = htmlEditor.getValue();
+        const htmlWithoutScripts = htmlContent.replace(/<script[\s\S]*?>[\s\S]*?<\/script>/gi, '');
+        const scripts = [...htmlContent.matchAll(/<script[\s\S]*?>[\s\S]*?<\/script>/gi)].map(match => match[0]);
 
-    // Write the HTML and CSS to the iframe
-    iframeDocument.documentElement.innerHTML = `
-        ${htmlWithoutScripts}
-        <style>${cssEditor.getValue()}</style>
-    `;
+        // Write the HTML and CSS to the iframe
+        iframeDocument.documentElement.innerHTML = `
+                ${htmlWithoutScripts}
+                <style>${cssEditor.getValue()}</style>
+        `;
 
-    // Execute scripts from HTML editor
-    scripts.forEach(script => {
-        const scriptElement = iframeDocument.createElement('script');
-        scriptElement.type = 'module'; // Use 'module' if necessary
-        const scriptContent = script.replace(/<\/?script.*?>/gi, ''); // Remove the <script> tags
-        scriptElement.innerHTML = scriptContent;
-        iframeDocument.body.appendChild(scriptElement);
-    });
+        // Execute scripts from HTML editor
+        scripts.forEach(script => {
+                const scriptElement = iframeDocument.createElement('script');
+                scriptElement.type = 'module'; // Use 'module' if necessary
+                const scriptContent = script.replace(/<\/?script.*?>/gi, ''); // Remove the <script> tags
+                scriptElement.innerHTML = scriptContent;
+                iframeDocument.body.appendChild(scriptElement);
+        });
 
-    // Execute the JavaScript from the JS editor
-    const jsScriptElement = iframeDocument.createElement('script');
-    jsScriptElement.type = 'module';
-    jsScriptElement.innerHTML = jsEditor.getValue();
-    iframeDocument.body.appendChild(jsScriptElement);
+        // Execute the JavaScript from the JS editor
+        const jsScriptElement = iframeDocument.createElement('script');
+        jsScriptElement.type = 'module';
+        jsScriptElement.innerHTML = jsEditor.getValue();
+        iframeDocument.body.appendChild(jsScriptElement);
 }
 
 function inputHandler() {
-    clearTimeout(debounce);
-    debounce = setTimeout(updateIframe, 500);
+        clearTimeout(debounce);
+        debounce = setTimeout(updateIframe, 500);
 }
 
 // Listen for input events

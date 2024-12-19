@@ -53,6 +53,7 @@
             <div class="px-2 h-8 flex items-center justify-between bg-primary-500 cursor-row-resize handler border-b">
             </div>
             <div id="placehold" class="flex-1"></div>
+            <input type="hidden" id="auth_check" value="{{ auth()->check() }}" >
         </div>
         <div class="resizable-handler w-2 h-full cursor-ew-resize"></div>
         <div id="container-right" class="h-full flex-1 relative">

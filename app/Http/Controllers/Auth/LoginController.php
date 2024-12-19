@@ -53,6 +53,9 @@ class LoginController extends Controller
 
     protected function authenticated(Request $request, $user)
     {
+        if (session()->has('redirectTo')) {
+            return redirect(session('redirectTo'));  // Redirect back to the saved page
+        }
         if ($user->is_blocked) {
             $this->guard()->logout();
 

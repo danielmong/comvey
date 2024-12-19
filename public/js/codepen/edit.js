@@ -32,30 +32,32 @@ $(".save-btn").click(function () {
     
     let requestUrl = actionType == "save" ? `/codepen/update/${id}` : '/codepen/save';
 
-    console.log(html);
-    
-    
-    $.ajax({
-        url: requestUrl,  // Your endpoint URL
-        type: 'POST',           // Method (GET, POST, etc.)
-        data: {
-            content_html: html,
-            content_css: css,
-            content_js: js,
-            title: title,
-            description: desc,
-            status: is_public ? 'public' : 'private'
-        },
-        success: function (response) {
-            new AWN().success('Your code has been updated successfully.');
-            if (actionType !== "save") {
-                location.href = '/codepen/edit/' + response.id;
+    if($("#auth_check").val() == 1) {
+        $.ajax({
+            url: requestUrl,  // Your endpoint URL
+            type: 'POST',           // Method (GET, POST, etc.)
+            data: {
+                content_html: html,
+                content_css: css,
+                content_js: js,
+                title: title,
+                description: desc,
+                status: is_public ? 'public' : 'private'
+            },
+            success: function (response) {
+                new AWN().success('Your code has been updated successfully.');
+                if (actionType !== "save") {
+                    location.href = '/codepen/edit/' + response.id;
+                }
+            },
+            error: function (xhr, status, error) {
+                new AWN().warning('Server Error.');
             }
-        },
-        error: function (xhr, status, error) {
-            new AWN().warning('Server Error.');
-        }
-    });
+        });
+    } else {
+        localStorage.setItem('redirectTo', window.location.pathname);  // Save the current page
+        window.location.href = '/login';
+    }
 });
 
 inputHandler();

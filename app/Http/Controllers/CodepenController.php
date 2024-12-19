@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use Illuminate\Http\Request;
 use App\Models\Codepen;
+use App\Models\UsageLimit;
+use App\Models\Product;
 
 class CodepenController extends Controller
 {
@@ -33,6 +35,10 @@ class CodepenController extends Controller
 
     public function save(Request $request)
     {
+        $usage = UsageLimit::where('user_id', auth()->id())->first();
+        if($usage && $usage->current_usage >= 5) {
+            return response()->json(['message' => 'exceed']);
+        }
         $codepen = new Codepen;
 
         $codepen->user_id = auth()->id();
@@ -45,13 +51,32 @@ class CodepenController extends Controller
 
         $codepen->save();
 
+        if($usage) {
+            $usage->current_usage = $usage->current_usage + 1;
+            $usage->save();
+        } else {
+            $product = Product::where('name', 'Codepen')->first();
+            if(!$product) {
+                $product = new Product;
+                $product->name = 'Codepen';
+                $product->slug = 'Codepen';
+                $product->is_popular = 1;
+                $product->is_default = 1;
+                $product->save();
+            }
+            $usage = new UsageLimit;
+            $usage->product_id = $product->id;
+            $usage->user_id = auth()->id();
+            $usage->current_usage = 1;
+            $usage->save();
+        }
+
         return response()->json(['message' => 'success', 'id' => $codepen->id]);
     }
 
     public function edit($id)
     {
         $codepen = Codepen::find($id);
-
         return view('/codepen/edit', compact('codepen'));
     }
 

@@ -37,9 +37,13 @@ $("#save-btn").click(function () {
             status: is_public ? 'public' : 'private'
         },
         success: function (response) {
-            new AWN().success('Your code has been saved successfully.');
-
-            location.href = '/codepen/edit/' + response.id;
+            if(response.message == 'success') {
+                new AWN().success('Your code has been saved successfully.');
+    
+                location.href = '/codepen/edit/' + response.id;
+            } else if(response.message == 'exceed') {
+                new AWN().warning('You have exceeded your free usage limit(5 times).');
+            }
         },
         error: function (xhr, status, error) {
             new AWN().warning('Server Error.');
