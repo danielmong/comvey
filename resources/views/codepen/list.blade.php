@@ -48,5 +48,73 @@
     </div>
 
     <script src="{{ asset('js/codepen/list.js') }}"></script>
+    <script src="{{ asset('js/embed.js') }}"></script>
 
+    <script>
+new CustomLet({
+      widgetType: 'whatsapp-chat',
+      options: {
+        phone: '1234567890',
+        message: 'Hello! How can we help you?',
+      },
+    });
+
+    // Google Reviews Widget Example
+    new CustomLet({
+      widgetType: 'google-reviews',
+      options: {
+        placeId: 'YOUR_GOOGLE_PLACE_ID',
+        apiKey: 'YOUR_GOOGLE_API_KEY',
+      },
+    });
+
+    // Contact Form Widget Example
+    new CustomLet({
+      widgetType: 'contact-form',
+    });
+
+    // Custom Links Widget Example
+    new CustomLet({
+      widgetType: 'custom-links',
+      options: {
+        links: [
+          { text: 'Google', url: 'https://google.com' },
+          { text: 'OpenAI', url: 'https://openai.com' },
+        ],
+      },
+    });
+
+    // Product Cards Widget Example
+    new CustomLet({
+      widgetType: 'product-cards',
+      options: {
+        products: [
+          { name: 'Product 1', price: 29.99, image: 'https://via.placeholder.com/150' },
+          { name: 'Product 2', price: 49.99, image: 'https://via.placeholder.com/150' },
+        ],
+      },
+    });
+
+    // Visitor Counter Widget Example
+    new CustomLet({
+      widgetType: 'visitor-counter',
+    });
+
+    // Chat Interface for OpenAI Widget Example
+    new CustomLet({
+      widgetType: 'chat-interface',
+      options: {
+        openAiApiKey: 'YOUR_OPENAI_API_KEY',
+      },
+    });
+
+    // Create Your Own Widget Example
+    new CustomLet({
+      widgetType: 'create-your-own',
+      options: {
+        htmlContent: '<h1>Welcome to My Custom Widget</h1>',
+        cssStyles: 'color: red; font-size: 20px;',
+      },
+    });
+    </script>
 </x-layouts.app>
