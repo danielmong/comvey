@@ -39,7 +39,7 @@ class LoginController extends Controller
 
     public function redirectPath()
     {
-        return Redirect::getIntendedUrl() ?? route('home');
+        return Redirect::getIntendedUrl() ?? route('codepen.list');
     }
 
     public function showLoginForm()
@@ -53,6 +53,9 @@ class LoginController extends Controller
 
     protected function authenticated(Request $request, $user)
     {
+        if (session()->has('redirectTo')) {
+            return redirect(session('redirectTo'));  // Redirect back to the saved page
+        }
         if ($user->is_blocked) {
             $this->guard()->logout();
 

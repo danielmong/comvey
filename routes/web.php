@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\OAuthController;
+use App\Http\Controllers\CodepenController;
 use App\Http\Controllers\PaymentProviders\PaddleController as PaddleController;
 use App\Services\UserDashboardManager;
 use App\Services\SessionManager;
@@ -23,9 +24,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-})->name('home')->middleware('sitemapped');
+Route::get("/", [CodepenController::class, 'home'])->name('home')->middleware('sitemapped');
+
+// Route::get('/', function () {
+//     if (auth()->check()) {
+//         return redirect()->route('codepen.list');
+//     } else {
+//         return view('home');
+//     }
+// })->name('home')->middleware('sitemapped');
 
 Route::get('/dashboard', function (UserDashboardManager $dashboardManager) {
     return redirect($dashboardManager->getUserDashboardUrl(Auth::user()));
@@ -194,3 +201,14 @@ Route::get('/invoice/preview', [
     App\Http\Controllers\InvoiceController::class,
     'preview',
 ])->name('invoice.preview');
+
+Route::get("/codepen/list", [CodepenController::class, 'list'])->name('codepen.list');
+Route::get('/codepen/create', [CodepenController::class, 'create'])->name('codepen.create');
+Route::get('/codepen/edit/{id}', [CodepenController::class, 'edit'])->name('codepen.edit');
+
+Route::middleware('auth')->group(function () {
+    Route::post('/codepen/save', [CodepenController::class, 'save'])->name('codepen.save');
+    Route::post('/codepen/update/{id}', [CodepenController::class, 'update'])->name('codepen.update');
+    Route::delete('/codepen/{id}', [CodepenController::class, 'delete'])->name('codepen.delete');
+});
+Route::get('/codepen/preview/{id}', [CodepenController::class, 'preview'])->name('codepenlist.preview');

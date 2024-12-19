@@ -20,7 +20,6 @@
         "intervention/image": "^3.4",
         "jeffgreco13/filament-breezy": "v2.4",
         "laravel/framework": "^11.23",
-        "laravel/horizon": "^5.21",
         "laravel/sanctum": "^4.0",
         "laravel/socialite": "^5.6",
         "laravel/tinker": "^2.8",
