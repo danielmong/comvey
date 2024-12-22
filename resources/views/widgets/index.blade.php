@@ -20,16 +20,17 @@
                             </span>
                             <span class="">Contact Form</span>
                         </div>
-                        <div class="cursor-pointer rounded-full border w-12 box flex items-center justify-start px-0.5 py-0.5 bg-slate-600">
+                        <div class="cursor-pointer rounded-full border w-12 box flex items-center px-0.5 py-0.5 bg-slate-600 wca-switch" data-expanded="true" data-content="wca-content-contact-form" data-target="contact-form">
                             <div class="w-5 h-5 rounded-full border bg-white"></div>
                         </div>
                     </div>
-                    <div class="widget-card-content">
+                    <div class="widget-card-content h-0 overflow-hidden transition-all duration-200" id="wca-content-contact-form">
                         <div class="mt-3">
                             <label class="text-sm">Email Address</label>
                             <input
                                 type="email"
-                                class="border rounded-md outline-none px-3 py-1.5 w-full text-sm mt-1" />
+                                class="border rounded-md outline-none px-3 py-1.5 w-full text-sm mt-1"
+                                id="wca-input-email" />
                         </div>
                     </div>
                 </div>
@@ -45,16 +46,17 @@
                             </span>
                             <span class="">WhatsApp</span>
                         </div>
-                        <div class="cursor-pointer rounded-full border w-12 box flex items-center justify-start px-0.5 py-0.5 bg-slate-600">
+                        <div class="cursor-pointer rounded-full border w-12 box flex items-center px-0.5 py-0.5 bg-slate-600 wca-switch" data-expanded="true" data-content="wca-content-whatsapp" data-target="whatsapp">
                             <div class="w-5 h-5 rounded-full border bg-white"></div>
                         </div>
                     </div>
-                    <div class="widget-card-content">
+                    <div class="widget-card-content h-0 overflow-hidden transition-all duration-200" id="wca-content-whatsapp">
                         <div class="mt-3">
                             <label class="text-sm">WhatsApp Number</label>
                             <input
                                 type="text"
-                                class="border rounded-md outline-none px-3 py-1.5 w-full text-sm mt-1" />
+                                class="border rounded-md outline-none px-3 py-1.5 w-full text-sm mt-1"
+                                id="wca-input-whatsapp" />
                         </div>
                     </div>
                 </div>
@@ -70,16 +72,17 @@
                             </span>
                             <span class="">Messenger</span>
                         </div>
-                        <div class="cursor-pointer rounded-full border w-12 box flex items-center justify-start px-0.5 py-0.5 bg-slate-600">
+                        <div class="cursor-pointer rounded-full border w-12 box flex items-center px-0.5 py-0.5 bg-slate-600 wca-switch" data-expanded="true" data-content="wca-content-messenger" data-target="messenger">
                             <div class="w-5 h-5 rounded-full border bg-white"></div>
                         </div>
                     </div>
-                    <div class="widget-card-content">
+                    <div class="widget-card-content h-0 overflow-hidden transition-all duration-200" id="wca-content-messenger">
                         <div class="mt-3">
                             <label class="text-sm">Messenger Address</label>
                             <input
                                 type="text"
-                                class="border rounded-md outline-none px-3 py-1.5 w-full text-sm mt-1" />
+                                class="border rounded-md outline-none px-3 py-1.5 w-full text-sm mt-1"
+                                id="wca-input-messenger" />
                         </div>
                     </div>
                 </div>
@@ -94,40 +97,12 @@
                             </span>
                             <span class="">Custom Links</span>
                         </div>
-                        <div class="cursor-pointer rounded-full border w-12 box flex items-center justify-start px-0.5 py-0.5 bg-slate-600">
+                        <div class="cursor-pointer rounded-full border w-12 box flex items-center justify-start px-0.5 py-0.5 bg-slate-600 wca-switch" data-expanded="true" data-content="wca-content-links" data-target="links">
                             <div class="w-5 h-5 rounded-full border bg-white"></div>
                         </div>
                     </div>
-                    <div class="widget-card-content">
-                        <div class="mt-3">
-                            <div class="">
-                                <label class="text-sm">Link-1 Url</label>
-                                <input
-                                    type="text"
-                                    class="border rounded-md outline-none px-3 py-1.5 w-full text-sm mt-1" />
-                            </div>
-                            <div class="">
-                                <label class="text-sm">Link-1 Name</label>
-                                <input
-                                    type="text"
-                                    class="border rounded-md outline-none px-3 py-1.5 w-full text-sm mt-1" />
-                            </div>
-                        </div>
-                        <div class="mt-3">
-                            <div class="">
-                                <label class="text-sm">Link-1 Url</label>
-                                <input
-                                    type="text"
-                                    class="border rounded-md outline-none px-3 py-1.5 w-full text-sm mt-1" />
-                            </div>
-                            <div class="">
-                                <label class="text-sm">Link-1 Name</label>
-                                <input
-                                    type="text"
-                                    class="border rounded-md outline-none px-3 py-1.5 w-full text-sm mt-1" />
-                            </div>
-                        </div>
-                        <button class="w-full rounded-md border flex items-center mt-3 py-2 justify-center bg-slate-700 hover:bg-slate-500">
+                    <div class="widget-card-content h-0 overflow-hidden transition-all duration-200" id="wca-content-links">
+                        <button class="w-full rounded-md border flex items-center mt-3 py-2 justify-center bg-slate-700 hover:bg-slate-500" id="wca-link-add-btn">
                             <span class="text-sm text-white">Add One</span>
                             <span class="block w-5 h-5 ml-2 text-white">
                                 <svg data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -145,10 +120,10 @@
             <div class="flex-1 relative h-[800px] overflow-hidden border" id="demo-container">
                 <h1 class="absolute left-1/2 transform -translate-x-1/2 bg-black/80 px-10 py-4 text-3xl text-white rounded-b-lg w-full text-center">This is showcase</h1>
 
-                <img src="{{ asset('images/demo.jpg')}}"  />
+                <img src="{{ asset('images/demo.jpg')}}" />
             </div>
         </div>
     </div>
+    <script src="{{ asset('js/widgets-script.js') }}"></script>
     <script src="{{ asset('js/demo-widgets.js') }}"></script>
-
 </x-layouts.app>

@@ -16,6 +16,7 @@
     position: absolute;
     right: 20px;
     bottom: 20px;
+    display: none;
 }
 
 .cv-widget-container-open-btn {
@@ -198,6 +199,10 @@
     background-color: rgb(57, 57, 57);
 }
 
+#whatsapp-container, #messenger-container, #links-container {
+    display: none;
+}
+
 .wc-email-us {
     height: 70px;
     padding: 16px;
@@ -309,7 +314,7 @@
 }
 
 .cv-widget-container-main-content-form {
-    display: flex;
+    display: none;
     flex-direction: column;
     gap: 16px;
     padding: 20px;
