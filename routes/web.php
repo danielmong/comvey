@@ -212,3 +212,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/codepen/{id}', [CodepenController::class, 'delete'])->name('codepen.delete');
 });
 Route::get('/codepen/preview/{id}', [CodepenController::class, 'preview'])->name('codepenlist.preview');
+
+
+Route::get('/widgets', function () {
+    return view('widgets.index');
+})->name('widgets');

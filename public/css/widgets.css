@@ -1,0 +1,316 @@
+.cv-widget-container ::-webkit-scrollbar {
+    width: 3px !important;
+}
+
+.cv-widget-container ::-webkit-scrollbar-track {
+    width: 3px !important;
+    background-color: black !important;
+}
+
+.cv-widget-container ::-webkit-scrollbar-thumb {
+    width: 3px !important;
+    background-color: rgb(131, 71, 255) !important;
+}
+
+.cv-widget-container {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+}
+
+.cv-widget-container-open-btn {
+    width: 60px;
+    height: 60px;
+    background-color: rgb(0, 89, 255);
+    border-radius: 9999px;
+    color: white;
+    padding: 15px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.cv-widget-container-open-btn svg {
+    background-color: transparent;
+}
+
+.cv-widget-container-main {
+    position: absolute;
+    background-color: rgb(17, 17, 17);
+    border-radius: 20px;
+    bottom: 0;
+    right: 0;
+    width: 0px;
+    height: 0px;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.cv-widget-container-main > div {
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.cv-widget-contaner-main-header {
+    height: 56px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background-color: rgb(37, 37, 37);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 20px;
+}
+
+.cv-w-h-action-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+    background: transparent;
+    cursor: pointer;
+    color: white;
+    padding: 5px;
+    margin-bottom: -10px;
+}
+
+
+#wc-return-btn {
+    visibility: hidden;
+}
+
+#wc-contact-btn {
+    opacity: 0.5;
+}
+
+.cv-w-h-action-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.cv-widget-container-main-content {
+    height: 425px;
+    margin-top: 70px;
+    width: 100%;
+    padding: 0px 20px;
+    overflow-y: auto;
+}
+
+.cv-widget-container-main-content-home {
+    width: 100%;
+    height: 100%;
+    padding-top: 50px;
+}
+
+.cv-widget-container-main-content-home .title {
+    color: white;
+    display: block;
+
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.cv-widget-container-main-content-home-content {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.cv-widget-container-main-content-contact {
+    width: 100%;
+    height: 100%;
+    padding-top: 10px;
+    display: none;
+}
+
+
+.cv-widget-container-main-content-contact .title {
+    color: white;
+    display: block;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+
+.cv-widget-container-main-content-contact-content {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.cv-widget-container-main-footer {
+    position: absolute;
+    bottom: 20px;
+    height: 70px;
+    width: 100%;
+    padding: 0px 20px;
+    background-color: transparent;
+}
+
+.cv-widget-container-main-footer-action {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(37, 37, 37, 0.8);
+    border: 1px solid rgb(51, 51, 51);
+    border-radius: 25px;
+}  
+
+.cv-w-f-action-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+}
+
+.cv-w-f-action-btn svg {
+    width: 24px;
+    height: 24px;
+}
+
+.cv-w-f-action-btn-label {
+    font-size: 13px;
+    margin-top: 3px;
+}
+
+
+
+.wc-inner-item  {
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 0.6px 0.54px -1.33px, rgba(0, 0, 0, 0.13) 0px 2.29px 2.06px -2.67px, rgba(0, 0, 0, 0.04) 0px 10px 9px -4px;
+    padding: 12px 16px;
+    height: 56px;
+    background-color: rgb(37, 37, 37);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer ;
+}
+
+.wc-inner-item:hover {
+    background-color: rgb(57, 57, 57);
+}
+
+.wc-email-us {
+    height: 70px;
+    padding: 16px;
+}
+
+.wc-contact-us-btn {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    background-color: rgb(131, 71, 255);
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    opacity: 0.9;
+}
+
+.wc-contact-us-btn:hover {
+    opacity: 1;
+}
+
+.wc-email-us:hover {
+    background-color: rgb(37, 37, 37);
+}
+
+.wc-inner-item .wc-inner-item-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.wc-inner-item .wc-inner-item-label .icon {
+    display: block;
+    width: 24px;
+    height: 24px;
+    color: white;
+}
+
+.wc-inner-item .wc-inner-item-label .label {
+    color: white;
+    font-size: 13px;
+}
+
+.wc-inner-item .wc-inner-item-go-icon {
+    width: 24px;
+    height: 24px;
+    color: white;
+    transition: all 0.3s;
+    border-radius: 50%;
+}
+
+.wc-inner-item:hover .wc-inner-item-go-icon {
+    transform: translateX(5px);
+}
+
+.wc-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.cv-widget-container-main-content-form-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.cv-widget-container-main-content-form-item label {
+    color: white;
+    font-size: 13px;
+}
+
+.cv-widget-container-main-content-form-item input, .cv-widget-container-main-content-form-item textarea {
+    color: white;
+    font-size: 13px;
+
+    border: 1px solid rgb(51, 51, 51);
+    width: 100%;
+    border-radius: 6px;
+    padding: 10px;
+    background-color: rgb(37, 37, 37);
+    outline: none;
+}
+
+.cv-widget-container-main-content-form-submit {
+    width: 100%;
+    height: 40px;
+    border: 1px solid rgb(51, 51, 51);
+    background-color: rgb(37, 37, 37);
+    color: white;
+    border-radius: 6px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-top: 16px;
+}
+
+.cv-widget-container-main-content-form-submit:hover {
+    background-color: rgb(51, 51, 51);
+}
+
+.cv-widget-container-main-content-form-submit .icon {
+    display: block;
+    width: 24px;
+    height: 24px;
+}
+
+.cv-widget-container-main-content-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+}
