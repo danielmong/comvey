@@ -1,4 +1,23 @@
 $(document).ready(function () {
+    let data = {
+        email: {
+            show: false,
+            content: ""
+        },
+        whatsapp: {
+            show: false,
+            content: ""
+        },
+        messenger: {
+            show: false,
+            content: ""
+        },
+        links: {
+            show: false,
+            content: []
+        }
+    };
+
     $(".wca-switch").click(function () {
         $(this).toggleClass('justify-end');
 
@@ -16,18 +35,22 @@ $(document).ready(function () {
             // Widget Control Script
             if (target == 'contact-form') {
                 $('.cv-widget-container').hide();
+                data.email.show = false;
             }
 
             if (target == 'whatsapp') {
                 $("#whatsapp-container").hide();
+                data.whatsapp.show = false;
             }
 
             if (target == 'messenger') {
                 $("#messenger-container").hide();
+                data.messenger.show = false;
             }
 
             if (target == 'links') {
                 $("#links-container").hide();
+                data.links.show = false;
             }
 
         } else {
@@ -40,18 +63,22 @@ $(document).ready(function () {
             // Widget Control Script
             if (target == 'contact-form') {
                 $('.cv-widget-container').show();
+                data.email.show = true;
             }
 
             if (target == 'whatsapp') {
                 $("#whatsapp-container").css("display", "flex");
+                data.whatsapp.show = true;
             }
 
             if (target == 'messenger') {
                 $("#messenger-container").css("display", "flex");
+                data.messenger.show = true;
             }
 
             if (target == 'links') {
                 $("#links-container").css("display", "flex");
+                data.links.show = true;
             }
         }
     })  
@@ -60,15 +87,22 @@ $(document).ready(function () {
 
     $('#wca-input-whatsapp').on('input', function () {
         $("#whatsapp-container").attr("href", $(this).val());
+        data.whatsapp.content = $(this).val();
     })
     $('#wca-input-messenger').on('input', function () {
         $("#messenger-container").attr("href", $(this).val());
+        data.messenger.content = $(this).val();
+    })
+    $("#wca-input-email").on("input", function () {
+        data.email.content = $(this).val();
     })
 
     let numOfLinks = 0;
 
     $("#wca-link-add-btn").on('click', function () {
         numOfLinks++;
+
+        data.links.content.push({ name: "", url: "" });
 
         let newLinkMakerItem = `
             <div class="mt-3" id="custom-link-item-${numOfLinks}">
@@ -114,18 +148,26 @@ $(document).ready(function () {
         $(`#wca-input-link${numOfLinks}-url`).on("input", function () {
             let linkId = $(this).data("id");
             $(`#link${linkId}-container`).attr("href", $(this).val());
+
+            data.links.content[Number(linkId) - 1].url = $(this).val();
         })
     
         $(`#wca-input-link${numOfLinks}-name`).on("input", function () {
             let linkId = $(this).data("id");
             $(`#link${linkId}-container .label`).html($(this).val());
+            data.links.content[Number(linkId) - 1].name = $(this).val();
         })
 
         $(`#delete-${numOfLinks}`).on('click', function () {
             $(`#custom-link-item-${numOfLinks}`).remove();
             $(`#link${numOfLinks}-container`).remove();
             numOfLinks--;
+            data.links.content.pop();
         })
 
+    })
+
+    $("#copy-code-btn").on("click", function () {
+        
     })
 })

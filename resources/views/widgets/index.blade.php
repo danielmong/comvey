@@ -118,8 +118,8 @@
 
 
             <div class="flex-1 relative h-[800px] overflow-hidden border" id="demo-container">
-                <h1 class="absolute left-1/2 transform -translate-x-1/2 bg-black/80 px-10 py-4 text-3xl text-white rounded-b-lg w-full text-center">This is showcase</h1>
-
+                <!-- <h1 class="absolute left-1/2 transform -translate-x-1/2 bg-black/80 px-10 py-4 text-3xl text-white rounded-b-lg w-full text-center">This is showcase</h1> -->
+                <div class="absolute top-2 right-2 bg-primary-600 hover:bg-primary-500 px-3 py-1.5 rounded-md cursor-pointer text-white text-sm" id="copy-code-btn">Copy Code</div>
                 <img src="{{ asset('images/demo.jpg')}}" />
             </div>
         </div>
