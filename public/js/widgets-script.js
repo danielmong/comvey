@@ -168,6 +168,56 @@ $(document).ready(function () {
     })
 
     $("#copy-code-btn").on("click", function () {
-        
+        if (data.email.show == false) {
+            new AWN().info('No widget created!');
+            return;
+        } else {
+            let code = "";
+            let serverUrl = "http://localhost:8000";
+
+            code += `<link rel="stylesheet" href="${serverUrl}/css/widgets.css">`;
+            code += `<script type="text/javascript" src="${serverUrl}/js/widgets.js"></script>`;
+            code += `<script type="text/javascript" src="${serverUrl}/js/embed.js"></script>`;
+            
+            code += `<script>`
+            if (data.whatsapp.show) {
+                code += `
+                    new CustomLet({
+                        widgetType: 'whatsapp',
+                        options: {
+                            phone: '${data.whatsapp.content}',
+                            message: 'Hello! How can we help you?',
+                        },
+                    });
+                `
+            }
+            if (data.messenger.show) {
+                code += `
+                    new CustomLet({
+                        widgetType: 'messenger',
+                        options: {
+                            phone: '${data.messenger.content}',
+                            message: 'Hello! How can we help you?',
+                        },
+                    });
+                `
+            }
+            if (data.links.show) {
+                let links = data.links.content.map(item => ({ text: item.name, url: item.url }));
+                code += `
+                    new CustomLet({
+                    widgetType: 'links',
+                    options: {
+                        links: ${JSON.stringify(links)}
+                    },
+                });
+                `
+            }
+
+            code += `</script>`;
+
+            console.log(code);
+            
+        }
     })
 })

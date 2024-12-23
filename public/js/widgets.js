@@ -141,32 +141,7 @@
                                 <button class="wc-contact-us-btn" id="wc-contact-us-btn">Contact us</button>
                             </div>
 
-                            <div class="wc-links">
-                                <a class="wc-inner-item">
-                                    <div class="wc-inner-item-label">
-                                        <span class="label">
-                                            This is Custom Link
-                                        </span>
-                                    </div>
-                                    <div class="wc-inner-item-go-icon">
-                                        <svg data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
-                                        </svg>
-                                    </div>
-                                </a>
-                                <a class="wc-inner-item">
-                                    <div class="wc-inner-item-label">
-                                        <span class="label">
-                                            This is Another Link
-                                        </span>
-                                    </div>
-                                    <div class="wc-inner-item-go-icon">
-                                        <svg data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
-                                        </svg>
-                                    </div>
-                                </a>
-                            </div>
+                            
                         
                             <div class="wc-inner-item wc-visitors">
                                 <div class="wc-inner-item-label">
@@ -214,52 +189,6 @@
                                 </div>
                             </div>
 
-                            <div class="wc-inner-item">
-                                <div class="wc-inner-item-label">
-                                    <span class="icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="20px" width="20px" version="1.1" id="Capa_1" viewBox="0 0 58 58" xml:space="preserve">
-                                            <g>
-                                                <path style="fill:#2CB742;" d="M0,58l4.988-14.963C2.457,38.78,1,33.812,1,28.5C1,12.76,13.76,0,29.5,0S58,12.76,58,28.5   S45.24,57,29.5,57c-4.789,0-9.299-1.187-13.26-3.273L0,58z"/>
-                                                <path style="fill:#FFFFFF;" d="M47.683,37.985c-1.316-2.487-6.169-5.331-6.169-5.331c-1.098-0.626-2.423-0.696-3.049,0.42   c0,0-1.577,1.891-1.978,2.163c-1.832,1.241-3.529,1.193-5.242-0.52l-3.981-3.981l-3.981-3.981c-1.713-1.713-1.761-3.41-0.52-5.242   c0.272-0.401,2.163-1.978,2.163-1.978c1.116-0.627,1.046-1.951,0.42-3.049c0,0-2.844-4.853-5.331-6.169   c-1.058-0.56-2.357-0.364-3.203,0.482l-1.758,1.758c-5.577,5.577-2.831,11.873,2.746,17.45l5.097,5.097l5.097,5.097   c5.577,5.577,11.873,8.323,17.45,2.746l1.758-1.758C48.048,40.341,48.243,39.042,47.683,37.985z"/>
-                                            </g>
-                                        </svg>
-                                    </span>
-                                    <span class="label">
-                                        WhatsApp
-                                    </span>
-                                </div>
-                                <div class="wc-inner-item-go-icon">
-                                    <svg data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
-                                    </svg>
-                                </div>
-                            </div>
-
-                            <div class="wc-inner-item">
-                                <div class="wc-inner-item-label">
-                                    <span class="icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 32 32" fill="none">
-                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M16 28.1791C23.1797 28.1791 29 22.5426 29 15.5896C29 8.63654 23.1797 3 16 3C8.8203 3 3 8.63654 3 15.5896C3 19.3712 4.72168 22.7634 7.44737 25.0711V27.6188C7.44737 28.6145 8.4616 29.2824 9.36588 28.8821L12.193 27.6307C13.397 27.9873 14.6754 28.1791 16 28.1791Z" fill="url(#paint0_linear_87_7239)"/>
-                                            <path d="M12.887 12.9133L9.11723 18.0689C8.71304 18.6217 9.43994 19.2858 9.99334 18.8693L13.2123 16.4469C13.5399 16.2003 13.9992 16.197 14.3307 16.4388L17.1935 18.5272C17.7425 18.9277 18.5272 18.8125 18.9269 18.2727L22.8805 12.9341C23.2905 12.3804 22.558 11.7109 22.0038 12.1328L18.6006 14.7236C18.2729 14.9731 17.8112 14.9777 17.4782 14.7347L14.6247 12.6531C14.0733 12.2509 13.285 12.369 12.887 12.9133Z" fill="white"/>
-                                            <defs>
-                                            <linearGradient id="paint0_linear_87_7239" x1="16" y1="3" x2="11.8286" y2="28.8583" gradientUnits="userSpaceOnUse">
-                                            <stop stop-color="#00B1FF"/>
-                                            <stop offset="1" stop-color="#006BFF"/>
-                                            </linearGradient>
-                                            </defs>
-                                        </svg>
-                                    </span>
-                                    <span class="label">
-                                        Messenger
-                                    </span>
-                                </div>
-                                <div class="wc-inner-item-go-icon">
-                                    <svg data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
-                                    </svg>
-                                </div>
-                            </div>
-                        
                         
                         </div>
 
