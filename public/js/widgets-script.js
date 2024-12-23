@@ -216,8 +216,9 @@ $(document).ready(function () {
 
             code += `</script>`;
 
-            console.log(code);
-            
+            navigator.clipboard.writeText(code);
+
+            new AWN().success('Code Copied! Paste in your code.')
         }
     })
 })
