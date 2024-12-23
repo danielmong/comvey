@@ -26,35 +26,6 @@
         @include('components.layouts.partials.tail')
     </div>
     <x-impersonate::banner />
-    <link rel="stylesheet" href="http://localhost:8000/css/widgets.css">
-    <script type="text/javascript" src="http://localhost:8000/js/widgets.js"></script>
-    <script type="text/javascript" src="http://localhost:8000/js/embed.js"></script>
-    <script>
-        new CustomLet({
-            widgetType: 'whatsapp',
-            options: {
-                phone: 'adsf',
-                message: 'Hello! How can we help you?',
-            },
-        });
-
-        new CustomLet({
-            widgetType: 'messenger',
-            options: {
-                phone: 'adsf',
-                message: 'Hello! How can we help you?',
-            },
-        });
-
-        new CustomLet({
-            widgetType: 'links',
-            options: {
-                links: [{
-                    "text": "asdf",
-                    "url": "adsf"
-                }]
-            },
-        });
-    </script>
+    
 
 </html>
