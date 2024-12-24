@@ -221,4 +221,7 @@ $(document).ready(function () {
             new AWN().success('Code Copied! Paste in your code.')
         }
     })
+
+    $(".wca-switch[data-target='contact-form']").trigger("click");
+    $(".cv-widget-container-open-btn").trigger("click");
 })

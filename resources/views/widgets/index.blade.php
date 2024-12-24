@@ -78,7 +78,7 @@
                     </div>
                     <div class="widget-card-content h-0 overflow-hidden transition-all duration-200" id="wca-content-messenger">
                         <div class="mt-3">
-                            <label class="text-sm">Messenger Address</label>
+                            <label class="text-sm">Messenger ID</label>
                             <input
                                 type="text"
                                 class="border rounded-md outline-none px-3 py-1.5 w-full text-sm mt-1"
