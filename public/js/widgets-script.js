@@ -117,7 +117,7 @@ $(document).ready(function () {
         data.links.content.push({ name: "", url: "" });
 
         let newLinkMakerItem = `
-            <div class="mt-3" id="custom-link-item-${numOfLinks}">
+            <div class="mt-3 pb-3 border-b" id="custom-link-item-${numOfLinks}">
                 <div class="wca-link-url">
                     <label class="text-sm">
                         Link-${numOfLinks} Url
@@ -186,7 +186,7 @@ $(document).ready(function () {
         data.products.content.push({ name: "", url: "", imgurl: "", description: "", price: "", oldPrice: "" });
 
         let newProductMakerItem = `
-            <div class="mt-3" id="product-item-${numOfProducts}">
+            <div class="border-b pb-3 mt-3" id="product-item-${numOfProducts}">
                 <div class="wca-product-url">
                     <label class="text-sm">
                         Product-${numOfProducts} Url
