@@ -15,6 +15,10 @@ $(document).ready(function () {
         links: {
             show: false,
             content: []
+        },
+        products: {
+            show: false,
+            content: []
         }
     };
 
@@ -53,6 +57,10 @@ $(document).ready(function () {
                 data.links.show = false;
             }
 
+            if (target == 'product') {
+                data.products.show = false;
+            }
+
         } else {
             // Style Script
             $(this).data('expanded', 'true');
@@ -79,6 +87,10 @@ $(document).ready(function () {
             if (target == 'links') {
                 $("#links-container").css("display", "flex");
                 data.links.show = true;
+            }
+
+            if (target == 'product') {
+                data.products.show = true;
             }
         }
     })  
@@ -109,8 +121,6 @@ $(document).ready(function () {
                 <div class="wca-link-url">
                     <label class="text-sm">
                         Link-${numOfLinks} Url
-
-                        <span class="ml-3 cursor-pointer hover:underline" id="delete-${numOfLinks}">Delete</span>
                     </label>
                     <input
                         type="text"
@@ -158,13 +168,139 @@ $(document).ready(function () {
             data.links.content[Number(linkId) - 1].name = $(this).val();
         })
 
-        $(`#delete-${numOfLinks}`).on('click', function () {
+    })
+    
+    $("#delete-link").on("click", function () {
+        if (numOfLinks) {
             $(`#custom-link-item-${numOfLinks}`).remove();
             $(`#link${numOfLinks}-container`).remove();
-            numOfLinks--;
             data.links.content.pop();
-        })
+            numOfLinks--;
+        }
+    })
 
+    let numOfProducts = 0;
+    $("#wca-product-add-btn").on("click", function () {
+        numOfProducts++;
+
+        data.products.content.push({ name: "", url: "", imgurl: "", description: "", price: "", oldPrice: "" });
+
+        let newProductMakerItem = `
+            <div class="mt-3" id="product-item-${numOfProducts}">
+                <div class="wca-product-url">
+                    <label class="text-sm">
+                        Product-${numOfProducts} Url
+                    </label>
+                    <input
+                        type="text"
+                        class="border rounded-md outline-none px-3 py-1.5 w-full text-sm mt-1 wca-input-product-url"
+                        id="wca-input-product${numOfProducts}-url"
+                        data-id="${numOfProducts}" />
+                </div>
+                <div class="wca-product-name">
+                    <label class="text-sm">Product-${numOfProducts} Name</label>
+                    <input
+                        type="text"
+                        class="border rounded-md outline-none px-3 py-1.5 w-full text-sm mt-1 wca-input-product-name"
+                        id="wca-input-product${numOfProducts}-name"
+                        data-id="${numOfProducts}" />
+                </div>
+                <div class="wca-product-description">
+                    <label class="text-sm">Product-${numOfProducts} Description</label>
+                    <input
+                        type="text"
+                        class="border rounded-md outline-none px-3 py-1.5 w-full text-sm mt-1 wca-input-product-description"
+                        id="wca-input-product${numOfProducts}-description"
+                        data-id="${numOfProducts}" />
+                </div>
+                <div class="wca-product-imgurl">
+                    <label class="text-sm">Product-${numOfProducts} Image Url</label>
+                    <input
+                        type="text"
+                        class="border rounded-md outline-none px-3 py-1.5 w-full text-sm mt-1 wca-input-product-imgurl"
+                        id="wca-input-product${numOfProducts}-imgurl"
+                        data-id="${numOfProducts}" />
+                </div>
+                <div class="wca-product-price">
+                    <label class="text-sm">Product-${numOfProducts} Price</label>
+                    <input
+                        type="text"
+                        class="border rounded-md outline-none px-3 py-1.5 w-full text-sm mt-1 wca-input-product-price"
+                        id="wca-input-product${numOfProducts}-price"
+                        data-id="${numOfProducts}" />
+                </div>
+                <div class="wca-product-oldprice">
+                    <label class="text-sm">Product-${numOfProducts} Old Price</label>
+                    <input
+                        type="text"
+                        class="border rounded-md outline-none px-3 py-1.5 w-full text-sm mt-1 wca-input-product-oldprice"
+                        id="wca-input-product${numOfProducts}-oldprice"
+                        data-id="${numOfProducts}" />
+                </div>
+            </div>`;
+
+        let newProductItemContent = `
+            <div class="wc-product-item">
+                <div class="wc-product-item-image">
+                    <img src="https://placehold.co/600x400.png" id="product${numOfProducts}-imgurl">
+                </div>
+                <div class="wc-product-info">
+                    <span class="wc-product-name" id="product${numOfProducts}-name">Product-${numOfProducts}</span>
+                    <div class="wc-product-price">
+                        <span class="wc-product-price" id="product${numOfProducts}-price">Price</span>
+                        <span class="wc-product-oldprice" id="product${numOfProducts}-oldprice">Old Price</span>
+                    </div>
+                </div>
+                <p class="wc-product-description" id="product${numOfProducts}-description">Product-${numOfProducts}'s Description</p>
+                <a class="wc-product-show-btn" id="product${numOfProducts}-url" href="">Shop Now</a>
+            </div>
+        `;
+
+        $(this).before(newProductMakerItem)
+        let newProductItem = document.createElement("div");
+        newProductItem.innerHTML = newProductItemContent;
+
+        $('#slick').slick('slickAdd', newProductItem);
+
+        $(`#wca-input-product${numOfProducts}-url`).on("input", function () {
+            let productId = $(this).data("id");
+            $(`#product${productId}-url`).attr("href", $(this).val());
+            data.products.content[Number(productId) - 1].url = $(this).val();
+        })
+        $(`#wca-input-product${numOfProducts}-name`).on("input", function () {
+            let productId = $(this).data("id");
+            $(`#product${productId}-name`).html($(this).val() ? $(this).val() : `Product-${productId}`);
+            data.products.content[Number(productId) - 1].name = $(this).val();
+        })
+        $(`#wca-input-product${numOfProducts}-description`).on("input", function () {
+            let productId = $(this).data("id");
+            $(`#product${productId}-description`).html($(this).val() ? $(this).val() : `Product-${productId}'s Description`);
+            data.products.content[Number(productId) - 1].description = $(this).val();
+        })
+        $(`#wca-input-product${numOfProducts}-imgurl`).on("input", function () {
+            let productId = $(this).data("id");
+            $(`#product${productId}-imgurl`).attr("src", $(this).val() ? $(this).val() : `https://placehold.co/600x400.png`);
+            data.products.content[Number(productId) - 1].imgurl = $(this).val();
+        })
+        $(`#wca-input-product${numOfProducts}-price`).on("input", function () {
+            let productId = $(this).data("id");
+            $(`#product${productId}-price`).html($(this).val() ? $(this).val() : `price`);
+            data.products.content[Number(productId) - 1].price = $(this).val();
+        })
+        $(`#wca-input-product${numOfProducts}-oldprice`).on("input", function () {
+            let productId = $(this).data("id");
+            $(`#product${productId}-oldprice`).html($(this).val() ? $(this).val() : `old price`);
+            data.products.content[Number(productId) - 1].oldprice = $(this).val();
+        })
+    })
+
+    $("#delete-product").on("click", function () {
+        if (numOfProducts) {
+            $(`#product-item-${numOfProducts}`).remove();
+            $("#slick").slick("slickRemove", numOfProducts - 1);
+            data.products.content.pop();
+            numOfProducts--;
+        }
     })
 
     $("#copy-code-btn").on("click", function () {
@@ -214,7 +350,27 @@ $(document).ready(function () {
                 `
             }
 
+            if (data.products.show) {
+                code = `
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.css" />
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick-theme.min.css" />
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.js"></script>
+                ` + code;
+
+                code += `
+                    new CustomLet({
+                        widgetType: 'product',
+                        options: {
+                            products: ${JSON.stringify(data.products.content)}
+                        }
+                    })
+                `
+            }
+
             code += `</script>`;
+
+            
 
             navigator.clipboard.writeText(code);
 
@@ -224,4 +380,14 @@ $(document).ready(function () {
 
     $(".wca-switch[data-target='contact-form']").trigger("click");
     $(".cv-widget-container-open-btn").trigger("click");
+
+    $("#slick").slick({
+        dots: false,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        adaptiveHeight: true,
+        autoplay: true,
+    });
 })

@@ -5,6 +5,8 @@
 
     <link rel="stylesheet" href="{{ asset('css/demo-widgets.css') }}">
 
+
+
     <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div class="w-full flex gap-4">
             <div class="w-80 flex flex-col gap-4">
@@ -96,6 +98,7 @@
                                 </svg>
                             </span>
                             <span class="">Custom Links</span>
+                            <span class="ml-3 cursor-pointer hover:underline text-xs" id="delete-link">Delete</span>
                         </div>
                         <div class="cursor-pointer rounded-full border w-12 box flex items-center justify-start px-0.5 py-0.5 bg-slate-600 wca-switch" data-expanded="true" data-content="wca-content-links" data-target="links">
                             <div class="w-5 h-5 rounded-full border bg-white"></div>
@@ -103,6 +106,33 @@
                     </div>
                     <div class="widget-card-content h-0 overflow-hidden transition-all duration-200" id="wca-content-links">
                         <button class="w-full rounded-md border flex items-center mt-3 py-2 justify-center bg-slate-700 hover:bg-slate-500" id="wca-link-add-btn">
+                            <span class="text-sm text-white">Add One</span>
+                            <span class="block w-5 h-5 ml-2 text-white">
+                                <svg data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"></path>
+                                </svg>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="widget-card w-full flex flex-col border px-3 py-2 rounded-md">
+                    <div class="widget-card-header flex items-center justify-between">
+                        <div class="flex items-center">
+                            <span class="w-5 h-5 mr-2">
+                                <svg data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"></path>
+                                </svg>
+                            </span>
+                            <span class="">Product Cards</span>
+                            <span class="ml-3 cursor-pointer hover:underline text-xs" id="delete-product">Delete</span>
+                        </div>
+                        <div class="cursor-pointer rounded-full border w-12 box flex items-center justify-start px-0.5 py-0.5 bg-slate-600 wca-switch" data-expanded="true" data-content="wca-content-product" data-target="product">
+                            <div class="w-5 h-5 rounded-full border bg-white"></div>
+                        </div>
+                    </div>
+                    <div class="widget-card-content h-0 overflow-hidden transition-all duration-200" id="wca-content-product">
+                        <button class="w-full rounded-md border flex items-center mt-3 py-2 justify-center bg-slate-700 hover:bg-slate-500" id="wca-product-add-btn">
                             <span class="text-sm text-white">Add One</span>
                             <span class="block w-5 h-5 ml-2 text-white">
                                 <svg data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">

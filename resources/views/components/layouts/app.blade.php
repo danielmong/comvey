@@ -9,6 +9,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     @include('components.layouts.partials.head')
+   
+
 </head>
 
 <body class="text-primary-900 flex flex-col min-h-screen" x-data>
@@ -26,6 +28,6 @@
         @include('components.layouts.partials.tail')
     </div>
     <x-impersonate::banner />
-    
+
 
 </html>
