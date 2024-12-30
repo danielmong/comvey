@@ -19,6 +19,18 @@ $(document).ready(function () {
         products: {
             show: false,
             content: []
+        },
+        google_review: {
+            show: false,
+            content: ""
+        },
+        visitor_count: {
+            show: false,
+            content: ""
+        },
+        chat_interface: {
+            show: false,
+            content: ""
         }
     };
 
@@ -374,7 +386,36 @@ $(document).ready(function () {
 
             navigator.clipboard.writeText(code);
 
-            new AWN().success('Code Copied! Paste in your code.')
+            new AWN().success('Code Copied! Paste in your code.');
+
+            // Usage Count Save API Request
+            let usageCountData = {};
+            Object.keys(data).forEach(key => {
+                usageCountData[key] = data[key].show;
+            });
+
+            var csrfToken = $('meta[name="csrf-token"]').attr('content');
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': csrfToken
+                }
+            });
+
+            $.ajax({
+                method: "POST",
+                url: "/widgets",
+                data: usageCountData,
+                success: function (response) {
+                    if (response.message == 'success') {
+                        // Success to save
+                    } else if (response.message == 'exceed') {
+                        // Else 
+                    }
+                },
+                error: function (xhr, status, error) {
+                    // Fail to save
+                }
+            })
         }
     })
 
@@ -390,4 +431,18 @@ $(document).ready(function () {
         adaptiveHeight: true,
         autoplay: true,
     });
+
+
+    $("#help-open").on("click", function () {
+        $(".help-modal").css("display", "flex");
+        
+        $(".help-content").css("transform", "scale(1)");
+
+        $("body").css("overflow", "hidden");
+    })
+    
+    $("#help-close").on("click", function () {
+        $(".help-modal").css("display", "none");
+        $("body").css("overflow", "auto");
+    })
 })

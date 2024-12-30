@@ -5,12 +5,37 @@
 
     <link rel="stylesheet" href="{{ asset('css/demo-widgets.css') }}">
 
-
+    <div class="hidden w-full h-screen help-modal bg-black/70 justify-center items-center absolute left-0 top-0 z-50">
+        <button class="hover:bg-white/10 rounded-md w-12 h-12 cursor-pointer flex items-center justify-center p-2 absolute right-2 top-2 text-white" id="help-close">
+            <svg data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-full h-full">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+        <div class="w-[600px] px-4 py-8 help-content transition-all duration-300 transform scale-0 bg-white rounded-lg">
+            <h1 class="text-black font-bold text-xl text-center mb-2">How to Use It</h1>
+            <div class="flex flex-col gap-1">
+                <p class="indent-2">- In this page, you can select and customize widgets to install on your websites.</p>
+                <p class="indent-2">- You can select and customize widgets on left panel. You can see the preview on right panel.</p>
+                <p class="indent-2">- While you are customizing, the result (code) will be autosaved.</p>
+                <p class="indent-2">- After complete, please click "Copy Code" button on bottom of left panel and paste it before closing body tag to install on your website.</p> 
+            </div>
+        </div>
+    </div>
 
     <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div class="w-full flex gap-4">
             <div class="w-80 flex flex-col gap-4">
 
+                <button class="bg-primary-600 w-full justify-center gap-2 hover:bg-primary-500 px-3 py-2 rounded-md cursor-pointer text-white text-sm flex items-center" id="help-open">
+                    <div class="w-5 h-5">
+                        <svg data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z"></path>
+                        </svg>
+                    </div>
+                    <span>
+                        How to Use
+                    </span>
+                </button>
 
                 <div class="widget-card w-full flex flex-col border px-3 py-2 rounded-md">
                     <div class="widget-card-header flex items-center justify-between">
@@ -230,12 +255,21 @@
                     </div>
                 </div>
 
+                <div class="bg-primary-600 w-full justify-center gap-2 hover:bg-primary-500 px-3 py-2 mt-4 rounded-md cursor-pointer text-white text-sm flex items-center" id="copy-code-btn">
+                    <div class="w-5 h-5">
+                        <svg data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5"></path>
+                        </svg>
+                    </div>
+                    <span>
+                        Copy Code
+                    </span>
+                </div>
             </div>
 
 
             <div class="flex-1 relative h-[800px] overflow-hidden border" id="demo-container">
                 <!-- <h1 class="absolute left-1/2 transform -translate-x-1/2 bg-black/80 px-10 py-4 text-3xl text-white rounded-b-lg w-full text-center">This is showcase</h1> -->
-                <div class="absolute top-2 right-2 bg-primary-600 hover:bg-primary-500 px-3 py-1.5 rounded-md cursor-pointer text-white text-sm" id="copy-code-btn">Copy Code</div>
                 <img src="{{ asset('images/demo.jpg')}}" />
             </div>
         </div>
